@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { nanoid } from "nanoid/non-secure";
-import "./SearchBox.css";
+import styles from "./SearchBox.module.css";
 
 const SearchBox = ({ filter, onChange }) => {
   const searchId = nanoid();
   return (
-    <div className="filter">
-      <label htmlFor={searchId}>Find contact by name </label>
+    <div className={styles.filter}>
+      <label htmlFor={searchId}>Find contact by name</label>
       <input
         type="text"
         id={searchId}

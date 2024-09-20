@@ -3,7 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import PropTypes from "prop-types";
 import { nanoid } from "nanoid";
-import "./ContactForm.css";
+import styles from "./ContactForm.module.css";
 
 const ContactForm = ({ onAddContact }) => {
   const initialValues = {
@@ -27,7 +27,6 @@ const ContactForm = ({ onAddContact }) => {
     };
 
     onAddContact(newContact);
-
     resetForm();
   };
 
@@ -36,14 +35,14 @@ const ContactForm = ({ onAddContact }) => {
       initialValues={initialValues}
       validationSchema={validationSchema}
       onSubmit={handleSubmit}>
-      <Form className="form">
+      <Form className={styles.form}>
         <label htmlFor="name">Name</label>
         <Field type="text" name="name" />
-        <ErrorMessage name="name" component="div" className="error" />
+        <ErrorMessage name="name" component="div" className={styles.error} />
 
         <label htmlFor="number">Number</label>
         <Field type="tel" name="number" />
-        <ErrorMessage name="number" component="div" className="error" />
+        <ErrorMessage name="number" component="div" className={styles.error} />
 
         <button type="submit">Add contact</button>
       </Form>
